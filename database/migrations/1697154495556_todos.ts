@@ -15,8 +15,8 @@ export default class extends BaseSchema {
     this.defer(async (db) => {
       await db.table(this.tableName).multiInsert([
         {
-          title: "test 2",
-          description: "test 2",
+          title: "test 1",
+          description: "test 1",
         },
         {
           title: "test 2",
