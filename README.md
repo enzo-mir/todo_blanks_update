@@ -2,7 +2,7 @@ VOICI L'EXECUTION EN LOCAL
 
 ##
 
-- Clonez le dépôt distant : `git clone https://github.com/enzo-mir/todo_blanks.git`
+- Clonez le dépôt distant : `git clone https://github.com/enzo-mir/todo_blanks_update.git`
 - Se situer dans le dossier "todo_blanks" : `cd todo_blanks_update`
 - Installez les dépendances :`pnpm i`
 - Configurez le mode de connexion à la base de données : `node ace configure @adonisjs/lucid`
