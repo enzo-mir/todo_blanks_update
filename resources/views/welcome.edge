@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AdonisJS - A fully featured web framework for Node.js</title>
+  @entryPointStyles('app')
+</head>
+<body class="relative grid place-items-center h-screen bg-indigo-900">
+  <main class="relative p-5 rounded-sm min-w-[450px] bg-indigo-500 gap-y-5 flex flex-col justify-top items-center h-3/4 w-1/2" >
+    <form action="{{ route('posts.add') }}" method="post" class="flex flex-col gap-x-2 lg:flex-row gap-y-3" >
+      <input type="text" name="title" placeholder="Ajouter un titre" class="rounded-sm p-1" required>
+      <input type="text" name="description"placeholder="Ajouter une description"  class="rounded-sm p-1" required>
+      <input class="bg-indigo-100 p-1 rounded-sm hover:cursor-pointer"  type="submit" value="Ajouter">
+    </form>
+    <article class="relative flex h-3/4 gap-x-10 justify-center items-start w-full max-w-xl">
+      <aside class="h-full">
+        <h2 class="text-white text-2xl p-2">À faire</h2>
+        <div class="w-full flex flex-col gap-y-5 h-full overflow-auto">
+          @each(response in data)
+          @if(response.status === 1)
+            @!component('todo',{
+              response: response
+            })
+          @elseif(response.status === 0)
+            @!component('todo',{
+              response: response
+            })
+          @end
+          @end
+        </div> 
+      </aside>
+      <aside>
+        <h2 class="text-white text-2xl p-2">Fait</h2>
+        <div class="w-full flex flex-col gap-y-5">
+          @each(response in data)
+          @if(response.status === 2)
+          @!component('todo',{
+            response: response
+          })
+        @end
+        @end
+      </div>
+    </aside>
+    </article>
+  </main>
+    
+  </body>
+</html>

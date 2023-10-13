@@ -1,0 +1,13 @@
+<ul data-done="false" class="flex flex-col gap-y-3 bg-[rgba(0,0,0,0.1)] w-full relative p-2 rounded-sm text-white">
+    <button class="absolute right-2 top-1" onclick="window.location.href = '/posts/delete/{{ response.id }}'">x</button>
+    <li class="text-xl"> {{ response.title }} </li>
+    <li> {{ response.description }} </li>
+    <li class="grid grid-cols-3 text-center gap-x-5 mt-4">
+      @each(i in [0,1,2])
+        <input type="radio" {{ response.status === i ? 'checked' : '' }} name="status{{ response.id }}" onchange="window.location.href = '/posts/updtate/{{ response.id }}/{{ i }}'" id="">
+      @end
+      <label for="" class="text-sm">À  faire</label>
+      <label for="" class="text-sm">En cours</label>
+      <label for="" class="text-sm">Fait</label>
+    </li>
+  </ul>
